@@ -40,7 +40,7 @@ namespace Camel {
       const canSendMesssage = this.workspace.hasInvokeRights(this.workspace.selection, this.workspace.selection && this.workspace.selection.domain === "org.apache.camel" ? "sendBodyAndHeaders" : "sendTextMessage");
 
       if (!isContextsFolder && !isRoutesFolder && !isRouteNode(this.workspace)) {
-        tabs.push(new Nav.HawtioTab('Attributes', '/camel/attributes'));
+        tabs.push(new Nav.HawtioTab('路由属性', '/camel/attributes'));
       }
 
       if (isContextsFolder) {
@@ -48,37 +48,37 @@ namespace Camel {
       }
 
       if (isRoutesFolder) {
-        tabs.push(new Nav.HawtioTab('Routes', '/camel/routes'));
+        tabs.push(new Nav.HawtioTab('路由信息', '/camel/routes'));
       }
 
       if ((isRoute || isRoutesFolder) && canDumpRoutesAsXml) {
-        tabs.push(new Nav.HawtioTab('Route Diagram', '/camel/routeDiagram'));
+        tabs.push(new Nav.HawtioTab('流程图', '/camel/routeDiagram'));
       }
 
       if (!isEndpoint && !isEndpointsFolder && (isRoute || isRoutesFolder) && canDumpRoutesAsXml) {
-        tabs.push(new Nav.HawtioTab('Source', '/camel/source'));
+        tabs.push(new Nav.HawtioTab('路由代码', '/camel/source'));
       }
 
       if (isRoute || isRouteNode(this.workspace)) {
-        tabs.push(new Nav.HawtioTab('Properties', '/camel/propertiesRoute'));
+        tabs.push(new Nav.HawtioTab('路由设置信息', '/camel/propertiesRoute'));
       }
 
       if (isEndpoint && isCamelVersionEQGT_2_15 && canExplainEndpointJson) {
-        tabs.push(new Nav.HawtioTab('Properties', '/camel/propertiesEndpoint'));
+        tabs.push(new Nav.HawtioTab('属性', '/camel/propertiesEndpoint'));
       }
 
       if (isComponent && isCamelVersionEQGT_2_15 && canExplainComponentJson) {
-        tabs.push(new Nav.HawtioTab('Properties', '/camel/propertiesComponent'));
+        tabs.push(new Nav.HawtioTab('属性', '/camel/propertiesComponent'));
       }
 
       if (isDataformat && isCamelVersionEQGT_2_16 && canExplainDataFormatJson) {
-        tabs.push(new Nav.HawtioTab('Properties', '/camel/propertiesDataFormat'));
+        tabs.push(new Nav.HawtioTab('属性', '/camel/propertiesDataFormat'));
       }
 
       if (!isEndpointsFolder && !isEndpoint && !isComponentsFolder &&
         !isComponent && (isCamelContext || isRoutesFolder || isRoute) &&
         isCamelVersionEQGT_2_15 && canBrowse) {
-        tabs.push(new Nav.HawtioTab('Exchanges', '/camel/exchanges'));
+        tabs.push(new Nav.HawtioTab('路由消息内容', '/camel/exchanges'));
       }
 
       if (!isEndpointsFolder && !isEndpoint && (isCamelContext || isRoutesFolder) &&

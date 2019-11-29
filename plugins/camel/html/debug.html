@@ -15,7 +15,7 @@
     <p>Debugging allows you to step through camel routes to diagnose issues.</p>
     <button type="button" class="btn btn-primary" ng-click="startDebugging()"
       hawtio-show object-name="{{camelDebugMBean}}" method-name="enableDebugger" mode="remove">
-      Start debugging
+       开始调试
     </button>
     <div class="alert alert-info"
       hawtio-show object-name="{{camelDebugMBean}}" method-name="enableDebugger" mode="inverse">
@@ -73,7 +73,14 @@
         </li>
       </ul>
       <div class="camel-debug-headers-contents" ng-show="activeTab === 'headers'">
-        <div ng-repeat="(key, value) in row.headers"><label>{{key}}:</label> {{value}}</div>
+        <div ng-repeat="(key, value) in row.headers">
+          
+          <label ><font style="color: blue;">{{key}}</font>:</label>
+          </br>
+          <textarea class="pf-c-form-control" ng-if="key=='fromedidataxml'" style="height: 200px;">{{value}}</textarea>
+        
+          <label ng-if="key!='fromedidataxml'">{{value}}</label>
+        </div>
       </div>
       <div class="camel-debug-body-contents" ng-show="activeTab === 'body'">
         <em class="camel-debug-no-body-text" ng-show="row.body === '[Body is null]'">No Body</em>
